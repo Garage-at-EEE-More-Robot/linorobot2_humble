@@ -1,0 +1,28 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <xacro:macro name="openvins_sensor" params="*origin">
+    <link name="ov_imu">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.030 0.124 0.030"/>
+          <!-- <mesh filename="" scale="0.001 0.001 0.001"/> -->
+        </geometry>
+        <material name="red">
+          <color rgba="0.416 0.051 0.047 1.0"/>
+        </material>
+      </visual>
+
+    </link>
+    
+    
+
+    <joint name="base_footprint_to_ov_imu" type="fixed">
+      <parent link="base_footprint"/>
+      <child link="ov_imu"/>
+      <xacro:insert_block name="origin" />
+    </joint>
+
+  </xacro:macro>
+</robot>
+  
