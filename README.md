@@ -1,3 +1,22 @@
+# linorobot2 (More-Tea integration)
+
+## Overview
+This repository provides the ROS 2 mobile-base stack used in More-Tea, including bringup, description, Gazebo simulation, and navigation. This repository is origined from humble branch of [Linorobot2](https://github.com/linorobot/linorobot2.git) by @grassjelly.
+
+## Repository Structure
+- `linorobot2/` – metapackage
+- `linorobot2_base/` – base node, filters, odometry/ekf config
+- `linorobot2_bringup/` – robot bringup and sensor launch files
+- `linorobot2_description/` – URDF/Xacro and visualization assets
+- `linorobot2_gazebo/` – Gazebo simulation package
+- `linorobot2_navigation/` – SLAM/Nav2 configs, maps, and launch files
+- `install_linorobot2.bash` – automated install helper
+- `ROBOT_INSTALLATION.md` – manual installation guide
+
+
+## Additional Documentation
+- Full original project documentation remains below.
+
 # linorobot2
 ![linorobot2](docs/linorobot2.gif)
 
