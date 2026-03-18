@@ -1,0 +1,42 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <xacro:macro name="ultrasonic_sensor" params="*origin frame_id">
+    <link name="${frame_id}">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.020 0.050 0.020"/>
+          <!-- <mesh filename="" scale="0.001 0.001 0.001"/> -->
+        </geometry>
+        <material name="redd">
+          <color rgba="0.5 0.051 0.047 1.0"/>
+        </material>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.020 0.050 0.020"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.135"/>
+        <inertia ixx="${(1/12) * 0.135 * ((0.050 * 0.050) + (0.020 * 0.020))}" ixy="0.0" ixz="0.0"
+                 iyy="${(1/12) * 0.135 * ((0.020 * 0.020) + (0.020 * 0.020))}" iyz="0.0"
+                 izz="${(1/12) * 0.135 * ((0.020 * 0.020) + (0.050 * 0.050))}"/>
+      </inertial>
+
+    </link>
+    
+
+    <joint name="${frame_id}_to_base_link" type="fixed">
+      <parent link="base_link"/>
+      <child link="${frame_id}"/>
+      <xacro:insert_block name="origin" />
+    </joint>
+
+  </xacro:macro>
+</robot>
+  
